@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 # Create your views here.
-def index(request):
+def index(request):    
     return render(request, 'main/index.html')
 
 

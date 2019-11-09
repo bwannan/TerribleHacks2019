@@ -47,3 +47,23 @@ function getMessage() {
         container.style.display = "block";
     }
   }
+
+  function setRand(id) {
+      console.log(id);
+    var element = document.getElementById(id);
+    console.log(element);
+    if(element) element.textContent = Math.floor(Math.random() * 100000);
+  }
+
+setRand("rand1");
+setRand("rand2");
+setRand("rand3");
+setRand("rand4");
+setRand("rand5");
+setRand("rand6");
+setRand("rand7");
+setRand("rand8");
+setRand("rand9");
+setRand("rand10");
+setRand("rand11");
+setRand("rand12");
