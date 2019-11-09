@@ -48,10 +48,10 @@ def send_email(request):
     message = "Hello, we are elite l33t hacker team. You system has been comprimised. \
     If you do not to us send 5,000,000$ million dollar, we will post you credential for everyone to see. \
     \r You do not trust great hacker skills? Here is proof: \
-    \r you username: " + username + "\r you password: " + password +
-    "\r do Not worry, if the 5,0000,000 is send, we will be deleting all information." +
-    "\r DO NOT try to contact the police:we monitoring all your account and we release the information" +
-    "if police are contacted." + "\r thank you for cooperation.\r L33t Haxx0rs"
+    \r you username: {} \r you password: {} \
+    \r do Not worry, if the 5,0000,000 is send, we will be deleting all information. \
+    \r DO NOT try to contact the police:we monitoring all your account and we release the information \
+    if police are contacted." + "\r thank you for cooperation.\r L33t Haxx0rs".format(username, password)
     from_email = [settings.EMAIL_HOST_USER]
     if to_email and username and password:
         send_mail(subject, message, from_email, [to_email])
