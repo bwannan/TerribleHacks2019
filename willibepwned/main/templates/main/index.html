@@ -1,15 +1,7 @@
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>Will I Be Pwned: Check if your email will be compromised in a data breach</title>
-    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    {% load static %}
-    <link rel="stylesheet" href="{% static "style.css" %}" />
-    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="shortcut icon" href="/favicon.ico">
-  </head>
+{% extends "base.html" %}
 
-  <body>
+{% block body %}
+<body>
     <div class="bodyGradient">
       <header class="navbar navbar-inverse navbar-static-top">
         <div class="container">
@@ -135,3 +127,4 @@
       </div>
     </footer>
   </body>
+  {% endblock %}
