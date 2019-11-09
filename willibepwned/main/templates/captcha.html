@@ -3,9 +3,13 @@
 {% block body %}
 <div class="grey-background">
     <div class="popup">
-        <img src="static/img/hot0.jpg"/>
-        <button>HOT</button>
-        <button>NOT</button>
+        <div>
+            <img class="hot-or-not" src={{images.0.0}}/>
+        </div>
+        <div class="hot-or-not-buttons">
+            <button class="hot-or-not-button">HOT</button>
+            <button class="hot-or-not-button">NOT</button>    
+        </div>
     </div>
 </div>
 {% endblock %}
