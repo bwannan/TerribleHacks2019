@@ -107,6 +107,9 @@ thead{
 thead tr{
     border-bottom:3px double #255f7d
 }
+.message p {
+    display: none
+}
 .fa-loader,.loaderText{
     color:#323232
 }
