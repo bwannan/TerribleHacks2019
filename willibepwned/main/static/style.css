@@ -1191,4 +1191,28 @@ body.modal-open{
 
 .grey-background{
     background-color: #000000BB;
+    height: 100%;
+    width: 100%;
+}
+
+.popup{
+    background: white;
+    border-radius: 2rem;
+    width: 22rem;
+    height: 25rem;
+    padding: 1rem;
+}
+
+.hot-or-not-buttons{
+    padding: 0.2rem;
+    display: flex;
+}
+
+.hot-or-not{
+    width: 20rem;
+    height: 20rem;
+}
+
+.hot-or-not-button{
+    align-items: center;
 }
