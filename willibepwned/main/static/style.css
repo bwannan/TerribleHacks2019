@@ -599,9 +599,7 @@ header a,header a:link,header a:visited{
 #searchContainer.secondaryHeader{
     margin-bottom:0
 }
-#searchContainer{
-    height:120px
-}
+
 #searchContainer input[type=text],#searchContainer input[type=email],#searchContainer input[type=password]{
     height:60px;
     border-top-left-radius:10px;
@@ -611,7 +609,7 @@ header a,header a:link,header a:visited{
 }
 #searchContainer button{
     font-size:29px;
-    height:60px;
+    height:180px;
     border-top-right-radius:10px;
     border-bottom-right-radius:10px
 }
