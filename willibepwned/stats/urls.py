@@ -3,6 +3,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.numexposed)
+        path('create/', views.create),
+        path('email/', views.send_email),
+
+
 ]
 
