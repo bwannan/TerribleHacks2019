@@ -45,15 +45,17 @@ def send_email(request):
     to_email = request.POST.get('email', '')
 
     subject = "YOU'VE BEEN HAXXED N00B!!"
-    message = "Hello, we are elite l33t hacker team. You system has been comprimised. \
+    message1 = "Hello, we are elite l33t hacker team. You system has been comprimised. \
     If you do not to us send 5,000,000$ million dollar, we will post you credential for everyone to see. \
     \r You do not trust great hacker skills? Here is proof: \
-    \r you username: {} \r you password: {} \
-    \r do Not worry, if the 5,0000,000 is send, we will be deleting all information. \
+    \r you username:" + username
+    message2 = "\r you password: {}" + password
+    message3 = "\r do Not worry, if the 5,0000,000 is send, we will be deleting all information. \
     \r DO NOT try to contact the police:we monitoring all your account and we release the information \
-    if police are contacted." + "\r thank you for cooperation.\r L33t Haxx0rs".format(username, password)
+    if police are contacted." + "\r thank you for cooperation.\r L33t Haxx0rs"
+    full_message = message1 + message2 + message3
     from_email = [settings.EMAIL_HOST_USER]
     if to_email and username and password:
-        send_mail(subject, message, from_email, [to_email])
+        send_mail(subject, full_message, from_email, [to_email])
 #   return HttpResponseRedirect('/main/confirm')
     return HttpResponse();
