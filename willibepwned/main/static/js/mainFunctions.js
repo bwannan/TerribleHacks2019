@@ -11,7 +11,7 @@ function getMessage() {
         document.getElementById("Password").value = "";
 
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "/backend/create", true);
+        xhr.open("POST", "/backend/email/", true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify({
             email: email,
