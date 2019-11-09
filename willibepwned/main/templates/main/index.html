@@ -3,451 +3,128 @@
 {% block body %}
 <body>
     <div class="bodyGradient">
-    <header class="navbar navbar-inverse navbar-static-top">
-    <div class="container">
-    <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    </button>
-    <a href="/" class="navbar-brand">';--</a>
-    </div>
-    <div class="navbar-collapse collapse">
-    <ul class="nav navbar-nav navbar-right">
-    <li class="active"><a href="/">Home</a></li>
-    <li><a href="/NotifyMe" class="notifyOfPwning" data-toggle="modal" data-target="#notifyMeModal" data-remote="false">Notify me</a></li>
-    <li><a href="/DomainSearch">Domain search</a></li>
-    <li><a href="/PwnedWebsites">Who's been pwned</a></li>
-    <li><a href="/Passwords">Passwords</a></li>
-    <li class="dropdown ">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">API</a>
-    <ul class="dropdown-menu">
-    <li><a href="/API/v3">Overview</a></li>
-    <li><a href="/API/Key">API key</a></li>
-    <li><a href="/API/Consumers">Who's using it</a></li>
-    </ul>
-    </li>
-    <li class="dropdown ">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About</a>
-    <ul class="dropdown-menu">
-    <li><a href="/About">Who, what &amp; why</a></li>
-    <li><a href="/Privacy">Privacy</a></li>
-    <li><a href="/FAQs">FAQs</a></li>
-    <li><a href="/Pastes">Pastes</a></li>
-    <li><a href="/OptOut">Opt-out</a></li>
-    <li><a href="https://twitter.com/haveibeenpwned" rel="noopener">Twitter</a></li>
-    <li><a href="https://haveibeenpwned.uservoice.com/forums/275398-general" rel="noopener">UserVoice</a></li>
-    <li><a href="https://feeds.feedburner.com/HaveIBeenPwnedLatestBreaches" rel="noopener"><i class="fa fa-rss"></i> Breaches</a></li>
-    </ul>
-    </li>
-    <li><a href="/Donate">Donate <i class="fa fa-bitcoin"></i> <i class="fa fa-paypal payPalLogo"></i></a></li>
-    </ul>
-    </div>
-    </div>
-    </header>
-    <div class="main">
-    <div class="container">
-    <div class="row logoPanel">
-    <div class="main-logo">
-    <span class="logo">';--have i been pwned?</span>
-    </div>
-    <p>Check if you have an account that has been compromised in a data breach</p>
-    </div>
-    </div>
-    </div>
-    <div id="searchContainer" class="secondaryHeader">
-    <div class="container">
-    <form action="/" method="post" novalidate="novalidate">
-    <div class="input-group">
-    <input autocapitalize="off" autocorrect="off" class="form-control" data-val="true" data-val-maxlength="The field Account must be a string or array type with a maximum length of '255'." data-val-maxlength-max="255" data-val-minlength="The field Account must be a string or array type with a minimum length of '3'." data-val-minlength-min="3" id="Account" maxlength="255" name="Account" placeholder="email address" spellcheck="false" type="email" value="">
-    <input type="hidden" name="apiEndpoint" id="apiEndpoint" value="https://haveibeenpwned.com/unifiedsearch/">
-    <span class="input-group-btn">
-    <button class="btn btn-primary btn-lg" type="submit" id="searchPwnage">pwned?</button>
-    </span>
-    </div>
-    <div class="progress progress-striped active" id="loading">
-    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-    </div>
-    </div>
-    </form>
-    </div>
-    </div>
-    <div class="tertiaryHeader panel-collapse in">
-    <div class="container">
-    <p>
-    <img src="/Content/Images/PasswordManager/1PasswordLogo.svg" alt="1Password Logo">
-    <span>Generate secure, unique passwords for every account</span>
-    <a href="https://1password.com/haveibeenpwned/" target="_blank" class="btn btn-group-xs" rel="noopener">Learn more at 1Password.com</a>
-    </p>
-    <p class="why1Password"><a href="/1Password">Why 1Password?</a></p>
-    </div>
-    </div>
-    </div>
-    <div id="invalidAccount" class="pwnedSearchResult panel-collapse  collapse ">
-    <div class="container">
-    <div class="row pwnResultBanner">
-    <h2>
-    </h2>
-    </div>
-    </div>
-    </div>
-    <div id="noPwnage" class="pwnedSearchResult panel-collapse  collapse">
-    <div class="container">
-    <div class="row pwnResultBanner">
-    <div class="pwnTitle">
-    <h2>Good news — no pwnage found!</h2>
-    <p>
-    No <a href="/FAQs#DataSource">breached accounts</a>
-    <span id="noPastesFound">and no <a href="/FAQs#Pastes">pastes</a> (<a href="/NotifyMe" class="notifyOfPwning subscribe" data-toggle="modal" data-target="#notifyMeModal" data-remote="false">subscribe</a> to search sensitive breaches)</span>
-    </p>
-    </div>
-    <div class="actionsBar clearfix">
-    <div class="row">
-    <div class="col-sm-8 stepsToBetterSecurity">
-    <img src="/Content/Images/PasswordManager/1PasswordLogo.svg" alt="1Password Logo">
-    <h3>3 Steps to better security</h3>
-    </div>
-    <div class="col-sm-4 startUsingPasswordManager">
-    <a href="https://1password.com/haveibeenpwned/" target="_blank" class="btn btn-group-sm passwordManagerLink" rel="noopener">Start using 1Password.com</a>
-    </div>
-    </div>
-    <div class="row passwordManagerSteps">
-    <div class="col-sm-4">
-    <p>
-    <a href="https://1password.com/haveibeenpwned/" target="_blank" class="passwordManagerLink" rel="noopener">
-    <img src="/Content/Images/PasswordManager/Step1.png" alt="Step 1" class="passwordManagerStep"><br>
-    <strong>Step 1</strong> Protect yourself using 1Password to generate and save strong passwords for each website.
-    </a>
-    </p>
-    </div>
-    <div class="col-sm-4">
-    <p>
-    <a href="https://1password.com/haveibeenpwned/" target="_blank" class="passwordManagerLink" rel="noopener">
-    <img src="/Content/Images/PasswordManager/Step2.png" alt="Step 2" class="passwordManagerStep"><br>
-    <strong>Step 2</strong> Enable 2 factor authentication and store the codes inside your 1Password account.
-    </a>
-    </p>
-    </div>
-    <div class="col-sm-4">
-    <p>
-    <a href="/NotifyMe" class="notifyOfPwning" data-toggle="modal" data-target="#notifyMeModal" data-remote="false">
-    <img src="/Content/Images/PasswordManager/Step3.png" alt="Step 3" class="passwordManagerStep"><br>
-    <strong>Step 3</strong> <span class="subscribe">Subscribe</span> to notifications for any other breaches. Then just change that unique password.
-    </a>
-    </p>
-    </div>
-    </div>
-    <div class="row why1Password">
-    <div class="col-sm-12">
-    <p><a href="/1Password">Why 1Password?</a></p>
-    </div>
-    </div>
-    </div>
-    <p class="socialLinks clearfix">
-    <a class="socialLink" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fwww.haveibeenpwned.com" rel="noopener"><i class="fa fa-facebook-square"></i></a>
-    <a class="socialLink" href="https://twitter.com/intent/tweet?url=http%3a%2f%2fwww.haveibeenpwned.com&amp;text=Good+news+%e2%80%94+I+haven%27t+been+pwned!+%40haveibeenpwned" rel="noopener"><i class="fa fa-twitter-square"></i></a>
-    <a href="/Donate" class="socialLink"><i class="fa fa-bitcoin bitcoinLogo"></i><i class="fa fa-paypal payPalLogo"></i> Donate</a>
-    </p>
-    </div>
-    </div>
-    </div>
-    <div id="pwnedWebsitesContainer">
-    <div id="pwnedWebsiteBanner" class="pwnedSearchResult pwnedRow panel-collapse collapse">
-    <div class="container">
-    <div class="row pwnResultBanner">
-    <div class="pwnTitle">
-    <h2>
-    Oh no — pwned!
-    </h2>
-    <p id="pwnCount"></p>
-    </div>
-    <div class="actionsBar clearfix">
-    <div class="row">
-    <div class="col-sm-8 stepsToBetterSecurity">
-    <img src="/Content/Images/PasswordManager/1PasswordLogo.svg" alt="1Password Logo">
-    <h3>3 Steps to better security</h3>
-    </div>
-    <div class="col-sm-4 startUsingPasswordManager">
-    <a href="https://1password.com/haveibeenpwned/" target="_blank" class="btn btn-group-sm passwordManagerLink" rel="noopener">Start using 1Password.com</a>
-    </div>
-    </div>
-    <div class="row passwordManagerSteps">
-    <div class="col-sm-4">
-    <p>
-    <a href="https://1password.com/haveibeenpwned/" target="_blank" class="passwordManagerLink" rel="noopener">
-    <img src="/Content/Images/PasswordManager/Step1.png" alt="Step 1" class="passwordManagerStep"><br>
-    <strong>Step 1</strong> Protect yourself using 1Password to generate and save strong passwords for each website.
-    </a>
-    </p>
-    </div>
-    <div class="col-sm-4">
-    <p>
-    <a href="https://1password.com/haveibeenpwned/" target="_blank" class="passwordManagerLink" rel="noopener">
-    <img src="/Content/Images/PasswordManager/Step2.png" alt="Step 2" class="passwordManagerStep"><br>
-    <strong>Step 2</strong> Enable 2 factor authentication and store the codes inside your 1Password account.
-    </a>
-    </p>
-    </div>
-    <div class="col-sm-4">
-    <p>
-    <a href="/NotifyMe" class="notifyOfPwning" data-toggle="modal" data-target="#notifyMeModal" data-remote="false">
-    <img src="/Content/Images/PasswordManager/Step3.png" alt="Step 3" class="passwordManagerStep"><br>
-    <strong>Step 3</strong> <span class="subscribe">Subscribe</span> to notifications for any other breaches. Then just change that unique password.
-    </a>
-    </p>
-    </div>
-    </div>
-    <div class="row why1Password">
-    <div class="col-sm-12">
-    <p><a href="/1Password">Why 1Password?</a></p>
-    </div>
-    </div>
-    </div>
-    <p class="socialLinks clearfix">
-    <a class="socialLink" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fwww.haveibeenpwned.com" rel="noopener"><i class="fa fa-facebook-square"></i></a>
-    <a class="socialLink" href="https://twitter.com/intent/tweet?url=http%3a%2f%2fwww.haveibeenpwned.com&amp;text=Oh+no+%e2%80%94+I%27ve+been+pwned!+%40haveibeenpwned" rel="noopener"><i class="fa fa-twitter-square"></i></a>
-    <a href="/Donate" class="socialLink"><i class="fa fa-bitcoin bitcoinLogo"></i><i class="fa fa-paypal payPalLogo"></i> Donate</a>
-    </p>
-    </div>
-    </div>
-    </div>
-    <div class="pwnedRow">
-    <div class="pwnedSearchResult pwnTypeDefinition pwnedWebsite panel-collapse collapse" id="breachDescription">
-    <div class="container">
-    <h3>Breaches you were pwned in</h3>
-    <p>
-    A "breach" is an incident where data has been unintentionally exposed to the
-    public. Using the <a href="https://1password.com/haveibeenpwned/" target="_blank" rel="noopener">1Password password manager</a>
-    helps you ensure all your passwords are strong and unique such that a breach of one service
-    doesn't put your other services at risk.
-    </p>
-    <hr>
-    </div>
-    </div>
-    <div id="pwnedSites">
-    </div>
-    </div>
-    <div class="pwnedRow">
-    <div class="pwnedSearchResult pwnTypeDefinition pwnedWebsite panel-collapse collapse" id="pasteDescription">
-    <div class="container">
-    <h3>Pastes you were found in</h3>
-    <p>
-    A <a href="/Pastes">paste</a> is information that has been published to a
-    publicly facing website designed to share content and is often an early indicator of a data
-    breach. Pastes are automatically imported and often removed shortly after having been
-    posted. Using the <a href="https://1password.com/haveibeenpwned" target="_blank" rel="noopener">1Password password manager</a>
-    helps you ensure all your passwords are strong and unique such that a breach of one service
-    doesn't put your other services at risk.
-    </p>
-    </div>
-    </div>
-    <div id="pastes">
-    </div>
-    </div>
-    </div>
-    <div class="modal fade" id="pwnedCompanyOverview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-    <div class="modal-content">
-    <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h4 class="modal-title" id="pwnModelHeading"></h4>
-    </div>
-    <div class="modal-body" id="pwnModalBody"></div>
-    </div>
-    </div>
+      <header class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">';--</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+              <li class="active"><a href="/">home</a></li>
+              <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">my boy, rick</a></li>
+              <li><a href="https://www.youtube.com/watch?v=y6120QOlsfU">do do do do do</a></li>
+              <li><a href="https://www.youtube.com/watch?v=xuCn8ux2gbs">history lesson</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="main">
+        <div class="container">
+          <div class="row logoPanel">
+            <div class="main-logo">
+              <span class="logo">';--will i be pwned?</span>
+            </div>
+            <p>Check if you have an account that will be compromised in a data breach</p>
+          </div>
+        </div>
+      </div>
+      <div id="searchContainer" class="secondaryHeader">
+        <div class="container">
+          <form action="/" method="post" novalidate="novalidate">
+            <div class="input-group">
+                <!--Email-->
+              <input autocapitalize="off" autocorrect="off" class="form-control" data-val="true" data-val-maxlength="The field Account must be a string or array type with a maximum length of '255'." data-val-maxlength-max="255" data-val-minlength="The field Account must be a string or array type with a minimum length of '3'." data-val-minlength-min="3" id="Account" maxlength="255" name="Account" placeholder="email address" spellcheck="false" type="email" value="">
+                <!--Username-->
+              <input autocapitalize="off" autocorrect="off" class="form-control" data-val="true" data-val-maxlength="The field Account must be a string or array type with a maximum length of '255'." data-val-maxlength-max="255" data-val-minlength="The field Account must be a string or array type with a minimum length of '1'." data-val-minlength-min="1" id="Account" maxlength="255" name="Account" placeholder="username (if different)" spellcheck="false" type="text" value="">
+                <!--Password-->
+              <input autocapitalize="off" autocorrect="off" class="form-control" data-val="true" data-val-maxlength="The field Account must be a string or array type with a maximum length of '255'." data-val-maxlength-max="255" data-val-minlength="The field Account must be a string or array type with a minimum length of '1'." data-val-minlength-min="1" id="Account" maxlength="255" name="Account" placeholder="password" spellcheck="false" type="text" value="">
+              <span class="input-group-btn">
+              <button class="btn btn-primary btn-lg" type="button">pwned?</button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
     <div class="container text-center">
-    <div class="row pwnedSummaryRow">
-    <div class="col-sm-3"><span class="pwnSummaryCount">411</span><br>pwned websites</div>
-    <div class="col-sm-3"><span class="pwnSummaryCount">8,507,922,560</span><br>pwned accounts</div>
-    <div class="col-sm-3"><span class="pwnSummaryCount">103,308</span><br>pastes</div>
-    <div class="col-sm-3"><span class="pwnSummaryCount">123,089,629</span><br>paste accounts</div>
-    </div>
-    <hr>
-    <div class="row">
-    <div class="col-sm-6">
-    <h3>Largest breaches</h3>
-    <div class="row pwnedCompanyList">
-    <table>
-    <tbody>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/List.png" alt="Collection #1 logo"></td>
-    <td class="pwnCount">772,904,991</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#Collection1" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="Collection1" data-remote="false">Collection #1 accounts</a></td>
-    </tr>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/VerificationsIO.png" alt="Verifications.io logo"></td>
-    <td class="pwnCount">763,117,241</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#VerificationsIO" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="VerificationsIO" data-remote="false">Verifications.io accounts</a></td>
-    </tr>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/Email.png" alt="Onliner Spambot logo"></td>
-    <td class="pwnCount">711,477,622</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#OnlinerSpambot" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="OnlinerSpambot" data-remote="false">Onliner Spambot accounts</a></td>
-    </tr>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/List.png" alt="Exploit.In logo"></td>
-    <td class="pwnCount">593,427,119</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#ExploitIn" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="ExploitIn" data-remote="false">Exploit.In accounts</a></td>
-    </tr>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/List.png" alt="Anti Public Combo List logo"></td>
-    <td class="pwnCount">457,962,538</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#AntiPublic" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="AntiPublic" data-remote="false">Anti Public Combo List accounts</a></td>
-    </tr>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/Email.png" alt="River City Media Spam List logo"></td>
-    <td class="pwnCount">393,430,309</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#RiverCityMedia" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="RiverCityMedia" data-remote="false">River City Media Spam List accounts</a></td>
-    </tr>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/MySpace.png" alt="MySpace logo"></td>
-    <td class="pwnCount">359,420,698</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#MySpace" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="MySpace" data-remote="false">MySpace accounts</a></td>
-    </tr>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/NetEase.png" alt="NetEase logo"></td>
-    <td class="pwnCount">234,842,089</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#NetEase" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="NetEase" data-remote="false">NetEase accounts</a></td>
-    </tr>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/LinkedIn.png" alt="LinkedIn logo"></td>
-    <td class="pwnCount">164,611,595</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#LinkedIn" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="LinkedIn" data-remote="false">LinkedIn accounts</a></td>
-    </tr>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/Dubsmash.png" alt="Dubsmash logo"></td>
-    <td class="pwnCount">161,749,950</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#Dubsmash" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="Dubsmash" data-remote="false">Dubsmash accounts</a></td>
-    </tr>
-    </tbody>
-    </table>
-    </div>
-    </div>
-    <div class="col-sm-6">
-    <h3>Recently added breaches</h3>
-    <div class="row pwnedCompanyList">
-    <table>
-    <tbody>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/Vedantu.png" alt="Vedantu logo"></td>
-    <td class="pwnCount">686,899</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#Vedantu" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="Vedantu" data-remote="false">Vedantu accounts</a></td>
-    </tr>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/HookersNL.png" alt="Hookers.nl logo"></td>
-    <td class="pwnCount">290,955</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#HookersNL" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="HookersNL" data-remote="false">Hookers.nl accounts</a></td>
-    </tr>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/Zooville.png" alt="Zooville logo"></td>
-    <td class="pwnCount">71,407</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#Zooville" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="Zooville" data-remote="false">Zooville accounts</a></td>
-    </tr>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/StreetEasy.png" alt="StreetEasy logo"></td>
-    <td class="pwnCount">988,230</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#StreetEasy" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="StreetEasy" data-remote="false">StreetEasy accounts</a></td>
-    </tr>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/Sephora.png" alt="Sephora logo"></td>
-    <td class="pwnCount">780,073</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#Sephora" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="Sephora" data-remote="false">Sephora accounts</a></td>
-    </tr>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/Wanelo.png" alt="Wanelo logo"></td>
-    <td class="pwnCount">23,165,793</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#Wanelo" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="Wanelo" data-remote="false">Wanelo accounts</a></td>
-    </tr>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/LuminPDF.png" alt="Lumin PDF logo"></td>
-    <td class="pwnCount">15,453,048</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#LuminPDF" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="LuminPDF" data-remote="false">Lumin PDF accounts</a></td>
-    </tr>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/KiwiFarms.png" alt="KiwiFarms logo"></td>
-    <td class="pwnCount">4,606</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#KiwiFarms" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="KiwiFarms" data-remote="false">KiwiFarms accounts</a></td>
-    </tr>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/Minehut.png" alt="Minehut logo"></td>
-    <td class="pwnCount">396,533</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#Minehut" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="Minehut" data-remote="false">Minehut accounts</a></td>
-    </tr>
-    <tr>
-    <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/VoidTO.png" alt="Void.to logo"></td>
-    <td class="pwnCount">95,431</td>
-    <td class="pwnCompany"><a href="/PwnedWebsites#VoidTO" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="VoidTO" data-remote="false">Void.to accounts</a></td>
-    </tr>
-    </tbody>
-    </table>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="modal fade" id="notifyMeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-    <div class="modal-content">
-    <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h4 class="modal-title">Notify me</h4>
-    </div>
-    <div class="modal-body" id="notifyMeContainer">
-    <div class="panel-collapse in" id="notifySubmission">
-    <form action="/NotifyMe" id="notifyMeForm" method="post" role="form"> <p>
-    Get notified when future pwnage occurs and your account is compromised.
-    </p>
-    <div class="form-group row">
-    <div class="col-lg-7">
-    <input class="form-control" data-val="true" data-val-maxlength="The field Email must be a string or array type with a maximum length of '255'." data-val-maxlength-max="255" data-val-regex="That doesn't look like a valid email address" data-val-regex-pattern="^(?!^.{256})[^\x00-\x1F\*\x7F]+@[^\x00-\x1F\*\x7F]+$" data-val-required="Can't do much without an email address" id="NotifyEmail" maxlength="255" name="NotifyEmail" placeholder="enter your email address" type="email" value="">
-    </div>
-    </div>
-    <div class="form-group row">
-    <script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>
-    <div class="g-recaptcha" data-sitekey="6Lcb0woTAAAAAJAbo3ToF_yAJMKMsZgSATbQTRmI"><div style="width: 304px; height: 78px;"><div><iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lcb0woTAAAAAJAbo3ToF_yAJMKMsZgSATbQTRmI&amp;co=aHR0cHM6Ly9oYXZlaWJlZW5wd25lZC5jb206NDQz&amp;hl=en&amp;v=0bBqi43w2fj-Lg1N3qzsqHNu&amp;size=normal&amp;cb=7crl68ura663" width="304" height="78" role="presentation" name="a-smtlcnnegmaz" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div>
-    </div>
-    <div class="validation-summary-valid alert alert-danger" data-valmsg-summary="true" id="notifyError"><ul><li style="display:none"></li>
-    </ul></div> <div class="form-group row" id="notificationSubmitRow">
-    <input type="submit" value="notify me of pwnage" class="btn btn-primary"><i class="fa fa-3x fa-cog fa-spin fa-loader" id="notificationLoading" style="display: none;"></i>
-    </div>
-    </form>
-    </div>
-    <div class="panel-collapse collapse" id="notifySuccess">
-    <p>
-    You've just been sent a verification email, all you need to do now is confirm your
-    address by clicking on the link when it hits your mailbox and you'll be automatically
-    notified of future pwnage. In case it doesn't show up, check your junk mail and if
-    you <em>still</em> can't find it, you can always repeat this process.
-    </p>
-    <hr>
-    <p class="text-center" id="postNotificationCallsToAction">
-    <a class="btn btn-primary" id="addAnotherNotification">add another address</a>
-    <a class="socialLink" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fwww.haveibeenpwned.com" rel="noopener"><i class="fa fa-facebook-square fa-3x"></i></a>
-    <a class="socialLink" href="https://twitter.com/intent/tweet?url=http%3a%2f%2fwww.haveibeenpwned.com&amp;text=Have%20you%20been%20pwned%3F%20Get%20told%20when%20you%20are%20with%20a%20free%20%40haveibeenpwned%20subscription" rel="noopener"><i class="fa fa-twitter-square fa-3x"></i></a>
-    </p>
-    </div>
-    </div>
-    </div>
-    </div>
+      <div class="row pwnedSummaryRow">
+        <div class="col-sm-3"><span class="pwnSummaryCount">411</span><br>pwned websites</div>
+        <div class="col-sm-3"><span class="pwnSummaryCount">8,507,922,560</span><br>pwned accounts</div>
+        <div class="col-sm-3"><span class="pwnSummaryCount">103,308</span><br>pastes</div>
+        <div class="col-sm-3"><span class="pwnSummaryCount">123,089,629</span><br>paste accounts</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-6">
+          <h3>Largest breaches</h3>
+          <div class="row pwnedCompanyList">
+            <table>
+              <tbody>
+                <tr>
+                  <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/List.png" alt="Collection #1 logo"></td>
+                  <td class="pwnCount">772,904,991</td>
+                  <td class="pwnCompany"><a href="/PwnedWebsites#Collection1" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="Collection1" data-remote="false">Collection #1 accounts</a></td>
+                </tr>
+                <tr>
+                  <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/VerificationsIO.png" alt="Verifications.io logo"></td>
+                  <td class="pwnCount">763,117,241</td>
+                  <td class="pwnCompany"><a href="/PwnedWebsites#VerificationsIO" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="VerificationsIO" data-remote="false">Verifications.io accounts</a></td>
+                </tr>
+                <tr>
+                  <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/Email.png" alt="Onliner Spambot logo"></td>
+                  <td class="pwnCount">711,477,622</td>
+                  <td class="pwnCompany"><a href="/PwnedWebsites#OnlinerSpambot" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="OnlinerSpambot" data-remote="false">Onliner Spambot accounts</a></td>
+                </tr>
+                <tr>
+                  <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/List.png" alt="Exploit.In logo"></td>
+                  <td class="pwnCount">593,427,119</td>
+                  <td class="pwnCompany"><a href="/PwnedWebsites#ExploitIn" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="ExploitIn" data-remote="false">Exploit.In accounts</a></td>
+                </tr>               
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <h3>Recently added breaches</h3>
+          <div class="row pwnedCompanyList">
+            <table>
+              <tbody>
+                <tr>
+                  <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/Vedantu.png" alt="Vedantu logo"></td>
+                  <td class="pwnCount">686,899</td>
+                  <td class="pwnCompany"><a href="/PwnedWebsites#Vedantu" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="Vedantu" data-remote="false">Vedantu accounts</a></td>
+                </tr>
+                <tr>
+                  <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/HookersNL.png" alt="Hookers.nl logo"></td>
+                  <td class="pwnCount">290,955</td>
+                  <td class="pwnCompany"><a href="/PwnedWebsites#HookersNL" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="HookersNL" data-remote="false">Hookers.nl accounts</a></td>
+                </tr>
+                <tr>
+                  <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/Zooville.png" alt="Zooville logo"></td>
+                  <td class="pwnCount">71,407</td>
+                  <td class="pwnCompany"><a href="/PwnedWebsites#Zooville" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="Zooville" data-remote="false">Zooville accounts</a></td>
+                </tr>
+                <tr>
+                  <td><img class="pwnLogo tiny" src="/Content/Images/PwnedLogos/StreetEasy.png" alt="StreetEasy logo"></td>
+                  <td class="pwnCount">988,230</td>
+                  <td class="pwnCompany"><a href="/PwnedWebsites#StreetEasy" data-toggle="modal" data-target="#pwnedCompanyOverview" data-pwned="StreetEasy" data-remote="false">StreetEasy accounts</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
     <footer>
-    <div class="container text-center">
-    <hr>
-    <p><a href="https://www.troyhunt.com" rel="noopener">A troyhunt.com project</a></p>
-    <p>
-    <a href="https://www.facebook.com/troyahunt" rel="noopener"><i class="fa fa-facebook-square fa-3x"></i></a>
-    <a href="https://twitter.com/troyhunt" rel="noopener"><i class="fa fa-twitter-square fa-3x"></i></a>
-    <a href="https://www.troyhunt.com/contact/" rel="noopener"><i class="fa fa-envelope fa-3x"></i></a>
-    </p>
-    </div>
+      <div class="container text-center">
+        <hr>
+        <p><a href="https://terriblehack.website/" rel="noopener">A terrible project</a></p>
+      </div>
     </footer>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha384-rY/jv8mMhqDabXSo+UCggqKtdmBfd3qC2/KvyTDNQ6PcUJXaxK1tMepoQda4g5vB" crossorigin="anonymous"></script>
-    <script nonce="">(window.jQuery) || document.write('<script src="/scripts/jquery"><\/script>');</script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script nonce="">($.fn.modal) || document.write('<script src="/scripts/bootstrap"><\/script>');</script>
-    <script src="/scripts/pwned?v=WxSCRykH9u3Wp4gvdrd5dBoLLbR8LcsnLxQfuh3J8_U1"></script>
-    
-    
-    <div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge" src="https://www.google.com/recaptcha/api2/bframe?hl=en&amp;v=0bBqi43w2fj-Lg1N3qzsqHNu&amp;k=6Lcb0woTAAAAAJAbo3ToF_yAJMKMsZgSATbQTRmI&amp;cb=oe65lnxcs267" name="c-smtlcnnegmaz" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" style="width: 100%; height: 100%;"></iframe></div></div></body>
-{% endblock %}
+  </body>
+  {% endblock %}
