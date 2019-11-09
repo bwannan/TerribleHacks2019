@@ -10,7 +10,7 @@ import random
 def randomexpose(request):
 #    user_obj = smuck.objects.order_by('?').first()
     user_obj = smuck.objects.all()
-    random_items = random.sample(list(user_obj),1)
+    random_item = random.sample(list(user_obj),1)
     random_item = random.choice(user_obj)
     ret = {'username': random_item.username, 'password':random_item.password, 'email': random_item.email}
     return JsonResponse(ret);
