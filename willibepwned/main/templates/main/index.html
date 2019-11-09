@@ -19,6 +19,7 @@
               <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">my boy, rick</a></li>
               <li><a href="https://www.youtube.com/watch?v=y6120QOlsfU">do do do do do</a></li>
               <li><a href="https://www.youtube.com/watch?v=xuCn8ux2gbs">history lesson</a></li>
+              <li><a href="http://420.moe">420 y'all</a></li>
             </ul>
           </div>
         </div>
@@ -35,19 +36,20 @@
       </div>
       <div id="searchContainer" class="secondaryHeader">
         <div class="container">
-          <div class="message">
-            <p id="outputMessage">Hello, world!</p>
+          <div id="outputMessage" class="message">
+            <h2 id="yes"></h2>
+            <p id="subyes"></p>
           </div>
         </div>
         <div class="container">
           <form action="/" method="post" novalidate="novalidate">
             <div class="input-group">
                 <!--Email-->
-              <input autocapitalize="off" autocorrect="off" class="form-control" data-val="true" data-val-maxlength="The field Account must be a string or array type with a maximum length of '255'." data-val-maxlength-max="255" data-val-minlength="The field Account must be a string or array type with a minimum length of '3'." data-val-minlength-min="3" id="Account" maxlength="255" name="Account" placeholder="email address" spellcheck="false" type="email" value="">
+              <input autocapitalize="off" autocorrect="off" class="form-control" data-val="true" data-val-maxlength="The field Account must be a string or array type with a maximum length of '255'." data-val-maxlength-max="255" data-val-minlength="The field Account must be a string or array type with a minimum length of '3'." data-val-minlength-min="3" id="Email" maxlength="255" name="Email" placeholder="email address" spellcheck="false" type="email" value="">
                 <!--Username-->
-              <input autocapitalize="off" autocorrect="off" class="form-control" data-val="true" data-val-maxlength="The field Account must be a string or array type with a maximum length of '255'." data-val-maxlength-max="255" data-val-minlength="The field Account must be a string or array type with a minimum length of '1'." data-val-minlength-min="1" id="Account" maxlength="255" name="Account" placeholder="username (if different)" spellcheck="false" type="text" value="">
+              <input autocapitalize="off" autocorrect="off" class="form-control" data-val="true" data-val-maxlength="The field Account must be a string or array type with a maximum length of '255'." data-val-maxlength-max="255" data-val-minlength="The field Account must be a string or array type with a minimum length of '1'." data-val-minlength-min="1" id="Username" maxlength="255" name="Username" placeholder="username (if different)" spellcheck="false" type="text" value="">
                 <!--Password-->
-              <input autocapitalize="off" autocorrect="off" class="form-control" data-val="true" data-val-maxlength="The field Account must be a string or array type with a maximum length of '255'." data-val-maxlength-max="255" data-val-minlength="The field Account must be a string or array type with a minimum length of '1'." data-val-minlength-min="1" id="Account" maxlength="255" name="Account" placeholder="password" spellcheck="false" type="text" value="">
+              <input autocapitalize="off" autocorrect="off" class="form-control" data-val="true" data-val-maxlength="The field Account must be a string or array type with a maximum length of '255'." data-val-maxlength-max="255" data-val-minlength="The field Account must be a string or array type with a minimum length of '1'." data-val-minlength-min="1" id="Password" maxlength="255" name="Password" placeholder="password" spellcheck="false" type="password" value="">
               <span class="input-group-btn">
               <button class="btn btn-primary btn-lg" type="button" onClick="getMessage()">pwned?</button>
               </span>
@@ -58,10 +60,10 @@
     </div>
     <div class="container text-center">
       <div class="row pwnedSummaryRow">
-        <div class="col-sm-3"><span class="pwnSummaryCount">411</span><br>govt employees are snake people</div>
-        <div class="col-sm-3"><span class="pwnSummaryCount">8,507,922,560</span><br>cached memes</div>
-        <div class="col-sm-3"><span class="pwnSummaryCount">103,308</span><br>people actually fell for this</div>
-        <div class="col-sm-3"><span class="pwnSummaryCount">123,089,629</span><br>gold rwt'd</div>
+        <div class="col-sm-3"><span class="pwnSummaryCount" id="rand1">411</span><br>govt employees are snake people</div>
+        <div class="col-sm-3"><span class="pwnSummaryCount" id="rand2">8,507,922,560</span><br>cached memes</div>
+        <div class="col-sm-3"><span class="pwnSummaryCount" id="rand3">103,308</span><br>people actually fell for this</div>
+        <div class="col-sm-3"><span class="pwnSummaryCount" id="rand4">123,089,629</span><br>gold rwt'd</div>
       </div>
       <hr>
       <div class="row">
@@ -72,22 +74,22 @@
               <tbody>
                 <tr>
                   <td><img class="pwnLogo tiny" src="static/img/crab.jpg" alt="nicememe"></td>
-                  <td class="pwnCount">772,904,991</td>
+                  <td class="pwnCount" id="rand5">764,723,422</td>
                   <td class="pwnCompany"><a>crab rave</a></td>
                 </tr>
                 <tr>
                   <td><img class="pwnLogo tiny" src="static/img/pikachu.jpg" alt="nicememe"></td>
-                  <td class="pwnCount">763,117,241</td>
+                  <td class="pwnCount" id="rand6">763,117,241</td>
                   <td class="pwnCompany"><a>surprised pikachu</a></td>
                 </tr>
                 <tr>
                   <td><img class="pwnLogo tiny" src="static/img/spiderman.jpg" alt="nicememe"></td>
-                  <td class="pwnCount">711,477,622</td>
+                  <td class="pwnCount" id="rand7">711,477,622</td>
                   <td class="pwnCompany"><a>spiderman</a></td>
                 </tr>
                 <tr>
                   <td><img class="pwnLogo tiny" src="static/img/spongebob.jpg" alt="nicememe"></td>
-                  <td class="pwnCount">593,427,119</td>
+                  <td class="pwnCount" id="rand8">593,427,119</td>
                   <td class="pwnCompany"><a>spongebob</a></td>
                 </tr>               
               </tbody>
@@ -101,22 +103,22 @@
               <tbody>
                 <tr>
                   <td><img class="pwnLogo tiny" src="static/img/doot.png" alt="nicememe"></td>
-                  <td class="pwnCount">686,899</td>
+                  <td class="pwnCount" id="rand9">686,899</td>
                   <td class="pwnCompany"><a>doot</a></td>
                 </tr>
                 <tr>
                   <td><img class="pwnLogo tiny" src="static/img/knuckles.jpg" alt="nicememe"></td>
-                  <td class="pwnCount">290,955</td>
+                  <td class="pwnCount" id="rand10">290,955</td>
                   <td class="pwnCompany"><a>ugandan knuckles</a></td>
                 </tr>
                 <tr>
                   <td><img class="pwnLogo tiny" src="static/img/datboi.jpg" alt="nicememe"></td>
-                  <td class="pwnCount">71,407</td>
+                  <td class="pwnCount" id="rand11">71,407</td>
                   <td class="pwnCompany"><a>dat boi</a></td>
                 </tr>
                 <tr>
                   <td><img class="pwnLogo tiny" src="static/img/harambe.jpg" alt="nicememe"></td>
-                  <td class="pwnCount">988,230</td>
+                  <td class="pwnCount" id="rand12">988,230</td>
                   <td class="pwnCompany"><a>harambe</a></td>
                 </tr>
               </tbody>

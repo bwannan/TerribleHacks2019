@@ -107,8 +107,10 @@ thead{
 thead tr{
     border-bottom:3px double #255f7d
 }
-.message p {
-    display: none
+.message {
+    display: none;
+    text-align: center;
+    margin: 0 0 20px 0
 }
 .fa-loader,.loaderText{
     color:#323232
