@@ -6,4 +6,5 @@ urlpatterns = [
     path('', include('main.urls')),
     path('sendmail/', include('sendmail.urls')),
     path('admin/', admin.site.urls),
+    path('stats/', include('stats.urls')),
 ]
