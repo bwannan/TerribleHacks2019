@@ -12,12 +12,17 @@ function getMessage() {
 
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "/backend/email/", true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify({
-            email: email,
-            username: username,
-            password: password
-        }));
+        // xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+        var formData = new FormData();
+        formData.append("username", username);
+        formData.append("password", password);
+        formData.append("email", email);
+        // xhr.send(JSON.stringify({
+        //     email: email,
+        //     username: username,
+        //     password: password
+        // }));
+        xhr.send(formData);
 
         var container = document.getElementById("outputMessage");
         var title = document.getElementById("yes");
